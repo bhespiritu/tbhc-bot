@@ -31,8 +31,9 @@ async def on_message(message):
         
     if message.content.startswith(prefix):
         command = message.content[len(prefix):] #strip the prefix
-        for opcode, method in command_dict:
-            if opcode == command:
+        print("command")
+        for opcode, method in command_dict.items():
+            if opcode in command:
                 await method(client, message)
         
 

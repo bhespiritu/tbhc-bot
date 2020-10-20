@@ -9,7 +9,7 @@ import commands
 client = discord.Client()
 
 command_dict = {
-    
+    "fantano": commands.fantano
 }
 
 flag_dict = {

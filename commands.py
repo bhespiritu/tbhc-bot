@@ -3,5 +3,5 @@ import discord
 
 
 async def cheeseburger(client, message):
-    if message.content.contains("Good morning"):
+    if "Good morning" in message.content:
         await message.channel.send("Cheeseburger")

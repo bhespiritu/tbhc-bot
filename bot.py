@@ -15,9 +15,11 @@ command_dict = {
 token = str(os.getenv("TOKEN"))
 prefix = 'AM'
 
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+
 
 @client.event
 async def on_message(message):
@@ -27,7 +29,7 @@ async def on_message(message):
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
         
-    if(message.content.startswith(prefix)):
+    if message.content.startswith(prefix):
         command = message.content[len(prefix):] #strip the prefix
         for opcode, method in command_dict:
             if opcode == command:

@@ -6,6 +6,10 @@ load_dotenv()
 
 import commands
 
+from monitor import keep_alive
+
+keep_alive()
+
 client = discord.Client()
 
 command_dict = {

@@ -6,7 +6,7 @@ load_dotenv()
 
 import commands
 
-client = discord.Client(status='Gentrifying Clavius')
+client = discord.Client()
 
 command_dict = {
     
@@ -23,6 +23,7 @@ prefix = 'AM'
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+    await client.change_presence(activity=discord.Game(name="Gentrifying Clavius"))
 
 
 @client.event

@@ -6,9 +6,13 @@ load_dotenv()
 
 import commands
 
-client = discord.Client()
+client = discord.Client(status='Gentrifying Clavius')
 
 command_dict = {
+    
+}
+
+flag_dict = {
     "cheeseburger": commands.cheeseburger
 }
 
@@ -31,10 +35,12 @@ async def on_message(message):
         
     if message.content.startswith(prefix):
         command = message.content[len(prefix):] #strip the prefix
-        print("command")
         for opcode, method in command_dict.items():
-            if opcode in command:
+            if command.startswith(opcode):
                 await method(client, message)
-        
+    
+    for flag, method in flag_dict.items():
+        if flag in message.content:
+            await method(client, message)
 
 client.run(token)

@@ -13,7 +13,7 @@ command_dict = {
 }
 
 flag_dict = {
-    "cheeseburger": commands.cheeseburger
+    "Good morning": commands.cheeseburger
 }
 
 token = str(os.getenv("TOKEN"))
@@ -40,7 +40,7 @@ async def on_message(message):
                 await method(client, message)
     
     for flag, method in flag_dict.items():
-        if flag in message.content:
+        if flag in message.content.lower():
             await method(client, message)
 
 client.run(token)

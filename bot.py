@@ -8,7 +8,7 @@ import commands
 
 from monitor import keep_alive
 
-keep_alive()
+#keep_alive()
 
 client = discord.Client()
 
@@ -18,6 +18,10 @@ command_dict = {
 
 flag_dict = {
     "Good morning": commands.cheeseburger
+}
+
+user_dict = {
+    "kevin": 317349964894437376
 }
 
 token = str(os.getenv("TOKEN"))
@@ -47,5 +51,7 @@ async def on_message(message):
     for flag, method in flag_dict.items():
         if flag in message.content.lower():
             await method(client, message)
+    
+    await commands.dummy(client, message)
 
 client.run(token)

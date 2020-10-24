@@ -10,7 +10,7 @@ with open('words_dictionary.json') as json_file:
     english_words = json.load(json_file) 
 print("shoot, that's a lot of english: " + str(len(english_words)))
 
-accceptable_words = []
+accceptable_words = ["triss", "teah", "roger", "kevin", "jack", "eleni", "noah", "jonathan", "max", "alex", "lauren"]
 
 async def cheeseburger(client, message):
     if message.content.contains("Good morning"):

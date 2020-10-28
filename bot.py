@@ -6,7 +6,7 @@ load_dotenv()
 
 import commands
 
-from monitor import keep_alive
+#from monitor import keep_alive
 
 #keep_alive()
 
@@ -14,10 +14,12 @@ client = discord.Client()
 
 command_dict = {
     "fantano": commands.fantano
+   
 }
 
 flag_dict = {
-    "Good morning": commands.cheeseburger
+    "Good morning": commands.cheeseburger,
+    "" : commands.strodl
 
 }
 
@@ -44,9 +46,6 @@ async def on_message(message):
         for opcode, method in command_dict.items():
             if command.startswith(opcode):
                 await method(client, message)
-
-    if random.randint(0,10) == 10:
-        await message.add_reaction('\U0001F4B2') #strodl bot functionality
 
     
     for flag, method in flag_dict.items():
